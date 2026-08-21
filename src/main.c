@@ -1,3 +1,10 @@
+// GPIO pin mapping (Pico/Wokwi builds), mirrored in README.md:
+//   GP2 - System ON LED         (output)
+//   GP3 - System OFF LED        (output)
+//   GP4 - Buzzer                (output)
+//   GP5 - Notification LED      (output)
+//   GP6 - Door/tamper switch    (input, active low, internal pull-up)
+
 #include <stdio.h>
 
 #include "fault_scenarios.h"
