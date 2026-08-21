@@ -1,3 +1,5 @@
+// This is the only file you should edit.
+
 #include "logic.h"
 
 SystemOutputs evaluate_system_state(BmsData bms, BatteryTempData batt_temp,

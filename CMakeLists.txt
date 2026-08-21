@@ -6,7 +6,12 @@ set(EMBEDDED_TASK_SOURCES
     src/main.c
     src/logic.c
     src/mock_hw.c
-    src/fault_scenarios.c
+    test/fault_scenarios.c
+)
+
+set(EMBEDDED_TASK_INCLUDE_DIRS
+    include
+    test
 )
 
 if (NATIVE_BUILD)
@@ -16,7 +21,7 @@ if (NATIVE_BUILD)
     set(CMAKE_C_STANDARD_REQUIRED ON)
 
     add_executable(embedded_task ${EMBEDDED_TASK_SOURCES})
-    target_include_directories(embedded_task PRIVATE include)
+    target_include_directories(embedded_task PRIVATE ${EMBEDDED_TASK_INCLUDE_DIRS})
 else ()
     include(pico_sdk_import.cmake)
 
@@ -29,7 +34,7 @@ else ()
     pico_sdk_init()
 
     add_executable(embedded_task ${EMBEDDED_TASK_SOURCES})
-    target_include_directories(embedded_task PRIVATE include)
+    target_include_directories(embedded_task PRIVATE ${EMBEDDED_TASK_INCLUDE_DIRS})
     target_compile_definitions(embedded_task PRIVATE PICO_BUILD)
     target_link_libraries(embedded_task PRIVATE pico_stdlib)
 

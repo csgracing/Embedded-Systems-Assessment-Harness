@@ -1,3 +1,12 @@
+/*
+ * Mock hardware layer for the home battery system. Provides one function
+ * to read each sensor/ECU and one function to write each actuator, so the
+ * rest of the code never has to know how the underlying data is stored or
+ * where it comes from. The test harness sets what these read functions
+ * return by calling load_world_state() with a full snapshot of every
+ * component before each scenario.
+ */
+
 #ifndef MOCK_HW_H
 #define MOCK_HW_H
 
